@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  tomcat:
+    max-http-post-size: 0
+
+convert:
+  archiver-command-map: {
+    "[.7z]": { packCommand: "7z a $archive_name $file_names", unpackCommand: "7z x $archive_name" },
+    "[.zip]": { packCommand: "zip -r $archive_name $file_names", unpackCommand: "unzip $archive_name" },
+    "[.rar]": { packCommand: "rar a $archive_name $file_names", unpackCommand: "unrar x $archive_name" },
+    "[.tar]": { packCommand: "tar -cf $archive_name $file_names", unpackCommand: "tar -xf $archive_name" },
+    "[.tar.gz]": { packCommand: "tar -czf $archive_name $file_names", unpackCommand: "tar -xzf $archive_name" },
+    "[.tar.bz2]": { packCommand: "tar -cjf $archive_name $file_names", unpackCommand: "tar -xjf $archive_name" },
+    "[.tar.xz]": { packCommand: "tar -cJf $archive_name $file_names", unpackCommand: "tar -xJf $archive_name" }
+  }
